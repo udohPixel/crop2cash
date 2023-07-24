@@ -44,8 +44,6 @@ they should be able to specify AT LEAST one crop to narrow the result.
 >+ __Linting Library:__ Eslint
 >+ __Style Guide:__ Airbnb
 >+ __Error Handling Library:__ Winston
->+ __Testing Framework:__ Mocha​ and Chai
->+ __Coverage:__ Istanbul NYC
 
 ## Attributes
 | Filter Attribute | Attribute Type | Description       |
@@ -60,9 +58,9 @@ they should be able to specify AT LEAST one crop to narrow the result.
 
 ## API Endpoints
 ```
-POST    /register                                                                   Create new farmer object
-GET     /farmer?filter_attr=ATTRIBUTE                                               Fetch farmers based on the filter attribute(s) provided
-GET     /farmer?filter_attr=ATTRIBUTE&ATTRIBUTE=ATTRIBUTE_VALUE                     Fetch farmers based on the filter attribute(s) and attribute value(s) provided
-GET     /farmer?filter_attr=ATTRIBUTE&filter_attr=age&age=ATTRIBUTE_VALUE           Fetch farmers based on the age filter attribute (among other attributes) provided
-GET     /farmer?filter_attr=ATTRIBUTE&filter_attr=crops&crops=ATTRIBUTE_VALUE       Fetch farmers based on the crops filter attribute (among other attributes) provided
+POST    /api/v1/register                                                                    Create new farmer object
+GET     /api/v1/farmers?filter_attr=ATTRIBUTE                                               Fetch farmers based on the filter attribute(s) provided
+GET     /api/v1/farmers?filter_attr=ATTRIBUTE&attribute=ATTRIBUTE_VALUE                     Fetch farmers based on the filter attribute(s) and attribute value(s) provided
+GET     /api/v1/farmers?filter_attr=ATTRIBUTE&filter_attr=age&age=ATTRIBUTE_VALUE           Fetch farmers based on the age filter attribute (among other attributes) provided
+GET     /api/v1/farmers?filter_attr=ATTRIBUTE&filter_attr=crops&crops=ATTRIBUTE_VALUE       Fetch farmers based on the crops filter attribute (among other attributes) provided
 ```

@@ -1,0 +1,12 @@
+CREATE DATABASE crop2cash;
+USE crop2cash;
+
+CREATE TABLE farmers (
+  id INTEGER(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
+  age INTEGER(11) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  crops VARCHAR(6000) NOT NULL
+);

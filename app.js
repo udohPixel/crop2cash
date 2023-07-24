@@ -18,9 +18,9 @@ const { dbSetup } = require('./providers/db');
 
 dbSetup();
 
-// const routes = require('./providers/routes');
+const routes = require('./providers/routes');
 
-// app.use(routes);
+app.use(routes);
 
 app.use((err, _req, res, _next) => {
   if (err) {

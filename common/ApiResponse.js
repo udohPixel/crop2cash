@@ -2,10 +2,11 @@
 const logger = require('../logger');
 const ApplicationException = require('./ApplicationException');
 
-function send(res, code, status, message) {
+function send(res, code, success, message, data) {
   const responseData = {
+    success,
     message,
-    status,
+    data,
   };
   return res.status(code).json(responseData);
 }
@@ -17,32 +18,32 @@ class ApiResponse {
   }
 
   // success response
-  success(res, code) {
-    return this.send(res, code || 200, 'ok');
+  success(res, message, data, code) {
+    return this.send(res, code || 200, true, message, data);
   }
 
   // error response
-  error(res, message, code) {
-    return this.send(res, code || 400, 'error', message);
+  error(res, message, data, code) {
+    return this.send(res, code || 400, false, message, data);
   }
 
-  // error object response
-  errorObject(res, error, statusCcode, meta) {
+  // error response
+  errorObject(res, error, code, meta) {
     let message;
-    let code;
+    let theCode;
 
     if (error instanceof ApplicationException) {
       message = error.message;
-      code = error.code;
-    } else if (statusCcode === 404) {
+      theCode = error.code;
+    } else if (code === 404) {
       message = 'Not found';
     } else {
       logger.error(error.message, { ...error, meta });
-      message = 'Invalid payload passed.';
-      code = 400;
+      message = 'Unexpected error occurred while processing your request';
+      theCode = 500;
     }
 
-    return this.send(res, code, 'error', message, null);
+    return this.send(res, theCode, false, message);
   }
 }
 
