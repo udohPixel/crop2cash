@@ -1,8 +1,0 @@
-{
-  "exclude": [
-    "test",
-    "logger",
-    "common"
-  ],
-  "check-coverage": true
-}
